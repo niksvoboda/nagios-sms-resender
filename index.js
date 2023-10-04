@@ -12,17 +12,21 @@ const RetranslatorNagios = require('./Retranslator_Nagios')
 ]
  */
 
-/** Получаем сообщение */
-let message = process.argv[4]
+/** Получаем статус */
+let SERVICESTATETYPE = process.argv[4]
 /** Чистим строку от разных видов ковычек (флаг -g все вхождения) */
-message = message.replace(/['`"]/g, '');
-/** Получаем строку с номером телефона */
+SERVICESTATETYPE = SERVICESTATETYPE.replace(/['`"]/g, '');
+/** Получаем строку с номером телефона и хостнеймом */
 let value = process.argv[5]
 /** Чистим строку от разных видов ковычек (флаг -g все вхождения) */
 value = value.replace(/['`"]/g, '');
-/** Доставем номер */
-value = value.split('@')[0]
-console.log(value);
+/** Достаём номер */
+let number = value.split('@')[0]
+/** Достаем HOSTNAME */
+let HOSTNAME = value.split('@')[1]
+HOSTNAME = HOSTNAME.split(':')[1]
+/** Формируем итоговое сообщение */
+let message = `Хост: ${HOSTNAME} Статус: ${SERVICESTATETYPE}`
 
-RetranslatorNagios.sms(value, message);
+RetranslatorNagios.sms(number, message);
 
