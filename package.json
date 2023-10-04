@@ -1,0 +1,27 @@
+{
+  "name": "nagios-sms-resender",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node index.js 'Dopkov' C 'Warning' `89859075646@*NagiosXI*:HOSTNAME:SERVICE-Web=NOTIFICATIONTYPE(SERVICESTATE):SERVICEOUTPUT:LONGSERVICEOUTPUT:SHORTDATETIME`"
+  }, 
+  
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niksvoboda/nagios-sms-resender.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/niksvoboda/nagios-sms-resender/issues"
+  },
+  "homepage": "https://github.com/niksvoboda/nagios-sms-resender#readme",
+  "dependencies": {
+    "axios": "^1.5.1",
+    "cli-color": "^2.0.3",
+    "config": "^3.3.9"
+  }
+}

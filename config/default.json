@@ -1,0 +1,8 @@
+{ 
+  "sms_gate": { 
+    "password_base_64": "1",
+    "url":"http://localhost:3000/api/testendpoint",
+    "systemID":"s",
+    "naming":"Gazprombank"    
+  }
+}
