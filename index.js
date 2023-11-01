@@ -23,10 +23,10 @@ value = value.replace(/['`"]/g, '');
 /** Достаём номер */
 let number = value.split('@')[0]
 /** Достаем HOSTNAME */
-let HOSTNAME = value.split('@')[1]
-HOSTNAME = HOSTNAME.split(':')[1]
+let message = value.split('@')[1]
 /** Формируем итоговое сообщение */
-let message = `Хост: ${HOSTNAME} Статус: ${SERVICESTATETYPE}`
+console.log(number, message)
+
 
 RetranslatorNagios.sms(number, message);
 
