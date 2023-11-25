@@ -1,4 +1,5 @@
 const RetranslatorNagios = require('./Retranslator_Nagios')
+console.log(process.argv)
 
 /**
 Аргументы прилетают в виде массива, где 4 - элемент строка с сообщением, 5 - строка содержащая номер получателя, разбиваем ее по @  
@@ -27,6 +28,7 @@ let message = value.split('@')[1]
 /** Формируем итоговое сообщение */
 console.log(number, message)
 
-
 RetranslatorNagios.sms(number, message);
+
+//process.exit(1)
 

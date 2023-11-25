@@ -9,6 +9,7 @@ class RetranslatorNagios extends Log {
     name = "RetranslatorNagios";
 
     async sms(value, message){
+        process.env.NODE_TLS_REJECT_UNAUTHORIZED = false;
         self.d(".sms");
         try {
             const password  = config.get('sms_gate.password_base_64')
@@ -32,22 +33,24 @@ class RetranslatorNagios extends Log {
             // Тело запроса
             const data = {
             "meta": {
-                "systemID": systemID // подтягиваем из конфига
+                "systemID": `"${systemID}"` // подтягиваем из конфига
             },
             "data": {
                 "requestID": "ce10e70d-2223-4235-b21e-dbd023eec4d7", // генерим
                 "orderId": "ce10e70d-2223-4235-b21e-dbd023eec4d7", // генерим
                 "contactInfo": {
                 "code": "contactPhoneClient", 
-                "value": value  // парсим из входных данных
+                "value": `"${value}"`  // парсим из входных данных
                 },
                 "priority": "realtime",
                 "messageType": "sms",
-                "expiredTime": expiredTime , // ставим + 1 час к времени сервера "2019-08-10T12:08:56.235+03:00"
-                "message":  message, // парсим из входных данных
-                "naming": naming
+                "expiredTime": `"${expiredTime}"`  , // ставим + 1 час к времени сервера в формате "2019-08-10T12:08:56.235+03:00"
+                "message":  `"${message}"` , // парсим из входных данных
+                "naming": `"${naming}"` 
             }
             };
+
+
 
         true && axios.post(url, data, req_config)  
                 .then(response => {

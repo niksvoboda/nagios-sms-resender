@@ -1,0 +1,1 @@
+root@nagios-tst:/srv/smitr/sipgw# node index.js "'Dopkov'", 'C', "'Warning'", "`''89859075646@*NagiosXI*:HOSTNAME:SERVICE-Web=NOTIFICATIONTYPE(SERVICESTATE):SERVICEOUTPUT:LONGSERVICEOUTPUT:SHORTDATETIME`"
